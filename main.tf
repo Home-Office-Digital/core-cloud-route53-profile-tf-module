@@ -6,7 +6,7 @@ resource "aws_route53profiles_profile" "this" {
 }
 
 locals {
-  input_profile_id = trimspace(var.r53_profile_id)
+  input_profile_id    = trimspace(var.r53_profile_id)
   selected_profile_id = local.input_profile_id != "" ? var.r53_profile_id : aws_route53profiles_profile.this[0].id
 }
 

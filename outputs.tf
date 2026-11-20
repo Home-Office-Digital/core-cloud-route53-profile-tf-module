@@ -1,13 +1,13 @@
 output "route53_profile_name" {
-  value = aws_route53profiles_profile.this.name
+  value = local.input_profile_id != "" ? null : aws_route53profiles_profile.this[0].name
 }
 
 output "route53_profile_arn" {
-  value = aws_route53profiles_profile.this.arn
+  value = local.input_profile_id != "" ? null : aws_route53profiles_profile.this[0].arn
 }
 
 output "route53_profile_id" {
-  value = aws_route53profiles_profile.this.arn
+  value = local.selected_profile_id
 }
 
 output "aws_route53profiles_resource_association_name" {
